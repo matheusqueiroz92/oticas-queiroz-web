@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build artifacts
+.next/
+out/
+dist/
+build/
+.turbo/
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.*.example
+
+# Testing
+coverage/
+playwright-report/
+test-results/
+.vitest-cache/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# IDE
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel/
+
+# Sentry
+.sentryclirc
+
+# Cache
+.cache/
+.parcel-cache/
+
+# n8n local
+infra/n8n/data/
+infra/n8n/postgres-data/
+infra/n8n/redis-data/
+
+# OS
+.DS_Store
+ehthumbs.db
+
+# Local artifacts
+*.local

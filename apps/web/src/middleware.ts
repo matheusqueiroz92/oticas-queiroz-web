@@ -1,0 +1,31 @@
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+/**
+ * Middleware do Next.
+ *
+ * Hoje cuida de:
+ * - Proteção das rotas /minha-conta/* (redirect para /login se não autenticado)
+ *
+ * Auth ainda não está plugado (Fase 4 do roadmap). Por enquanto deixamos
+ * o redirect comentado e logamos para fácil ativação posterior.
+ */
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  if (pathname.startsWith('/minha-conta')) {
+    // const token = request.cookies.get('session')?.value;
+    // if (!token) {
+    //   const url = request.nextUrl.clone();
+    //   url.pathname = '/login';
+    //   url.searchParams.set('callbackUrl', pathname);
+    //   return NextResponse.redirect(url);
+    // }
+  }
+
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: ['/minha-conta/:path*'],
+};

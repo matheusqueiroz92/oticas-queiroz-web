@@ -1,0 +1,49 @@
+{
+  "name": "oticas-queiroz-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ecossistema web da Óticas Queiroz: site institucional, portal do cliente, landing pages e automações WhatsApp.",
+  "author": "Matheus Queiroz <gigamatheus@gmail.com>",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=20.10.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "dev:web": "turbo run dev --filter=@oticas/web",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch --parallel",
+    "test:e2e": "turbo run test:e2e",
+    "clean": "turbo run clean && rm -rf node_modules .turbo",
+    "prepare": "lefthook install"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@commitlint/cli": "19.5.0",
+    "@commitlint/config-conventional": "19.5.0",
+    "lefthook": "1.7.18",
+    "turbo": "2.2.3",
+    "typescript": "5.6.3"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": ["@types/react", "@types/react-dom"],
+      "allowedVersions": {
+        "react": "19",
+        "react-dom": "19",
+        "@types/react": "19",
+        "@types/react-dom": "19"
+      }
+    }
+  },
+  "commitlint": {
+    "extends": ["@commitlint/config-conventional"]
+  }
+}

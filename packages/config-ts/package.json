@@ -1,0 +1,6 @@
+{
+  "name": "@oticas/config-ts",
+  "version": "0.1.0",
+  "private": true,
+  "files": ["nextjs.json", "node.json", "react-library.json"]
+}

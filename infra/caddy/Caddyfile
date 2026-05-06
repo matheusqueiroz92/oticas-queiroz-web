@@ -1,0 +1,20 @@
+# Reverse proxy do n8n com HTTPS automático (Let's Encrypt).
+# Caddy gerencia o certificado sozinho.
+
+{$N8N_HOST} {
+    reverse_proxy n8n:5678 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+    }
+
+    encode zstd gzip
+
+    # Headers de segurança
+    header {
+        Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+        X-Frame-Options "SAMEORIGIN"
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        -Server
+    }
+}

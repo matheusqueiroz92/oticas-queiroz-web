@@ -1,0 +1,47 @@
+/**
+ * Design Tokens — fonte da verdade das cores e tamanhos da marca.
+ * Valores em `R G B` (sem rgb()) para suportar opacity em Tailwind.
+ */
+
+:root {
+  /* Brand — Azul (logo + identidade) */
+  --brand-primary-50: 238 244 255;
+  --brand-primary-100: 217 231 255;
+  --brand-primary-500: 20 82 196;
+  --brand-primary-600: 13 61 163;
+  --brand-primary-700: 10 49 133;
+  --brand-primary-900: 6 31 84;
+
+  /* Brand — Vermelho (acento "OQ") */
+  --brand-accent-500: 230 57 70;
+  --brand-accent-600: 201 46 58;
+
+  /* Sistema */
+  --color-bg: 255 255 255;
+  --color-fg: 10 10 10;
+  --color-muted: 107 114 128;
+  --color-border: 229 231 235;
+  --color-success: 22 163 74;
+  --color-warning: 245 158 11;
+  --color-danger: 201 46 58;
+
+  /* Raios */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Sombras (tom da marca) */
+  --shadow-sm: 0 1px 2px rgb(10 31 84 / 6%);
+  --shadow-md: 0 4px 12px rgb(10 31 84 / 8%);
+  --shadow-lg: 0 12px 32px rgb(10 31 84 / 10%);
+}
+
+[data-theme="dark"],
+.dark {
+  --color-bg: 10 15 31;
+  --color-fg: 245 247 250;
+  --color-muted: 155 163 179;
+  --color-border: 31 41 55;
+  --brand-primary-500: 77 141 255;
+}
