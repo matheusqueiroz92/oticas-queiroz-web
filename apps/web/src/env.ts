@@ -20,6 +20,8 @@ export const env = createEnv({
     UPSTASH_REDIS_REST_TOKEN: z.string().optional(),
 
     SENTRY_AUTH_TOKEN: z.string().optional(),
+    CONTACT_WEBHOOK_URL: z.string().url().optional(),
+    CONTACT_WEBHOOK_SECRET: z.string().min(1).optional(),
   },
   client: {
     NEXT_PUBLIC_SITE_URL: z.string().url(),
@@ -36,6 +38,8 @@ export const env = createEnv({
     UPSTASH_REDIS_REST_URL: process.env.UPSTASH_REDIS_REST_URL,
     UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,
     SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
+    CONTACT_WEBHOOK_URL: process.env.CONTACT_WEBHOOK_URL,
+    CONTACT_WEBHOOK_SECRET: process.env.CONTACT_WEBHOOK_SECRET,
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
     NEXT_PUBLIC_WHATSAPP_NUMBER: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER,
     NEXT_PUBLIC_PHONE: process.env.NEXT_PUBLIC_PHONE,

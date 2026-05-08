@@ -1,37 +1,35 @@
 import { mainNav, utilityNav } from '@/config/nav';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/cn';
+import { Search } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
+import LogoHeader from '../../../public/images/LOGO-OTICAS-QUEIROZ-AZUL.png';
 
 export function Header({ className }: { className?: string }) {
   return (
     <header
       className={cn(
-        'sticky top-0 z-40 w-full border-border/60 border-b bg-bg/80 backdrop-blur supports-[backdrop-filter]:bg-bg/60',
+        'sticky top-0 z-40 w-full border-border/60 border-b bg-bg/85 backdrop-blur-md supports-[backdrop-filter]:bg-bg/65',
         className,
       )}
     >
-      <div className="container flex h-16 items-center justify-between gap-6">
+      <div className="container-editorial flex h-16 items-center justify-between gap-6 md:h-20">
         <Link
           href="/"
-          className="flex items-center gap-2 font-bold font-display text-brand-primary-500 text-xl"
+          aria-label={siteConfig.name}
+          className="flex items-center gap-2 transition-all duration-300 hover:scale-105"
         >
-          <span
-            aria-hidden
-            className="grid h-9 w-9 place-items-center rounded-md bg-brand-primary-500 text-white"
-          >
-            OQ
-          </span>
-          <span>{siteConfig.name}</span>
+          <Image src={LogoHeader} alt={siteConfig.name} width={150} height={150} priority />
         </Link>
 
-        <nav aria-label="Principal" className="hidden md:block">
-          <ul className="flex items-center gap-6 font-medium text-sm">
+        <nav aria-label="Principal" className="hidden lg:block">
+          <ul className="flex items-center gap-7 font-medium text-[#0A3185]/80 text-sm">
             {mainNav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-fg/80 transition-colors hover:text-brand-primary-500"
+                  className="relative py-1 transition-colors after:block after:h-px after:scale-x-0 after:bg-[#0A3185] after:transition-transform after:content-[''] hover:text-[#0A3185] hover:after:scale-x-100"
                 >
                   {item.label}
                 </Link>
@@ -40,16 +38,24 @@ export function Header({ className }: { className?: string }) {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="flex items-center gap-1 md:gap-2">
           {utilityNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="font-medium text-fg/80 text-sm transition-colors hover:text-brand-primary-500"
+              {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              className="hidden rounded-full px-4 py-2 font-medium text-[#0A3185]/80 text-sm transition hover:bg-cream-200 hover:text-[#0A3185] lg:inline-block"
             >
               {item.label}
             </Link>
           ))}
+          <button
+            type="button"
+            aria-label="Buscar"
+            className="grid h-10 w-10 place-items-center rounded-full text-[#0A3185]/80 transition hover:bg-cream-200 hover:text-[#0A3185]"
+          >
+            <Search className="h-4 w-4" aria-hidden="true" />
+          </button>
         </div>
       </div>
     </header>

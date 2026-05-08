@@ -16,7 +16,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/consultar-pedido',
     '/orcamento',
     '/politica-de-privacidade',
+    '/politica-de-cookies',
     '/termos-de-uso',
+    '/lgpd',
   ];
 
   return staticRoutes.map((path) => ({

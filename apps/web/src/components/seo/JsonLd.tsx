@@ -43,3 +43,44 @@ export function LocalBusinessJsonLd() {
     />
   );
 }
+
+export function ContactPageJsonLd() {
+  const contactUrl = `${siteConfig.url}/contato`;
+  const mapQuery = encodeURIComponent(
+    `${siteConfig.contact.address.street}, ${siteConfig.contact.address.number}, ${siteConfig.contact.address.city}`,
+  );
+
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: `Contato ${siteConfig.name}`,
+    description:
+      'Canal oficial de contato da Óticas Queiroz para dúvidas, reclamações e sugestões em Itapetinga.',
+    url: contactUrl,
+    mainEntity: {
+      '@type': 'OpticalStore',
+      name: siteConfig.name,
+      url: siteConfig.url,
+      telephone: `+${siteConfig.contact.phone}`,
+      email: siteConfig.contact.email,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: `${siteConfig.contact.address.street}, ${siteConfig.contact.address.number}`,
+        addressLocality: siteConfig.contact.address.city,
+        addressRegion: siteConfig.contact.address.state,
+        postalCode: siteConfig.contact.address.zip,
+        addressCountry: siteConfig.contact.address.country,
+      },
+      hasMap: `https://www.google.com/maps/search/?api=1&query=${mapQuery}`,
+      sameAs: [siteConfig.social.instagram, siteConfig.social.whatsappLink],
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD requer innerHTML
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}

@@ -13,19 +13,26 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "ss02", "cv11";
   }
 
   body {
-    @apply bg-bg text-fg font-sans;
-    font-feature-settings: "cv11", "ss01", "ss03";
+    @apply bg-bg font-sans text-fg;
   }
 
-  /* Foco visível consistente */
+  .font-display {
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+
+  .font-display-soft {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+
   :focus-visible {
-    @apply outline-none ring-2 ring-brand-primary-500 ring-offset-2 ring-offset-bg;
+    @apply rounded-sm outline-none ring-2 ring-amber-500 ring-offset-2 ring-offset-bg;
   }
 
-  /* Reduce motion */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -36,6 +43,67 @@
       scroll-behavior: auto !important;
     }
   }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--color-border-strong) / 0.6);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--color-fg-muted) / 0.6);
+    background-clip: content-box;
+  }
+}
+
+/** Tipografia consistente para documentos jurídicos longos nas páginas de políticas. */
+@layer components {
+  .prose-legal {
+    @apply mt-10 space-y-10 text-fg-muted text-base leading-relaxed;
+  }
+
+  .prose-legal h2 {
+    @apply scroll-mt-28 font-display text-2xl text-brand-primary-900 tracking-tight md:text-[1.75rem];
+  }
+
+  .prose-legal h3 {
+    @apply mt-6 font-semibold text-fg text-lg;
+  }
+
+  .prose-legal p {
+    @apply mt-3;
+  }
+
+  .prose-legal ul {
+    @apply mt-3 list-disc space-y-2 pl-5 marker:text-brand-accent-500;
+  }
+
+  .prose-legal ol {
+    @apply mt-3 list-decimal space-y-2 pl-5 marker:text-brand-accent-500;
+  }
+
+  .prose-legal li {
+    @apply pl-1;
+  }
+
+  .prose-legal strong {
+    @apply font-medium text-fg;
+  }
+
+  .prose-legal a {
+    @apply font-medium text-brand-primary-700 underline-offset-4 hover:underline;
+  }
+
+  .prose-legal address {
+    @apply mt-4 not-italic;
+  }
 }
 
 @layer utilities {
@@ -44,5 +112,16 @@
   }
   .text-pretty {
     text-wrap: pretty;
+  }
+
+  .editorial-rule {
+    background-image: linear-gradient(to right, currentColor 0 60%, transparent 0);
+    background-size: 24px 1px;
+    background-repeat: repeat-x;
+    background-position: 0 50%;
+  }
+
+  .container-editorial {
+    @apply mx-auto w-full max-w-[1320px] px-5 sm:px-6 lg:px-10 xl:px-12;
   }
 }

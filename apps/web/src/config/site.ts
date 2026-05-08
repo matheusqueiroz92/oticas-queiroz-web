@@ -1,9 +1,5 @@
 import { env } from '@/env';
 
-/**
- * Configuração central do site — ponto único para nome, contatos,
- * links sociais e textos institucionais.
- */
 export const siteConfig = {
   name: 'Óticas Queiroz',
   shortName: 'OQ',
@@ -12,6 +8,10 @@ export const siteConfig = {
     'Há mais de uma década cuidando da saúde visual de Itapetinga e região. Óculos de grau, óculos de sol, lentes e acessórios.',
   url: env.NEXT_PUBLIC_SITE_URL,
   ogImage: '/images/og-default.jpg',
+
+  urls: {
+    erp: 'https://app.oticasqueiroz.com.br',
+  },
 
   contact: {
     whatsapp: env.NEXT_PUBLIC_WHATSAPP_NUMBER,

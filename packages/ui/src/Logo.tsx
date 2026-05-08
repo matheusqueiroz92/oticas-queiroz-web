@@ -20,7 +20,7 @@ export function Logo({ variant = 'default', size = 'md', className }: LogoProps)
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-2 font-display font-bold',
+        'inline-flex items-center gap-2 font-bold font-display',
         variant === 'white' ? 'text-white' : 'text-brand-primary-500',
         sizes[size],
         className,
