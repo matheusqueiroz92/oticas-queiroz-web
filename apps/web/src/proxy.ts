@@ -10,7 +10,7 @@ import type { NextRequest } from 'next/server';
  * Auth ainda não está plugado (Fase 4 do roadmap). Por enquanto deixamos
  * o redirect comentado e logamos para fácil ativação posterior.
  */
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (pathname.startsWith('/minha-conta')) {
@@ -25,6 +25,8 @@ export function middleware(request: NextRequest) {
 
   return NextResponse.next();
 }
+
+export default proxy;
 
 export const config = {
   matcher: ['/minha-conta/:path*'],
