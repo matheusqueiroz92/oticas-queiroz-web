@@ -22,7 +22,7 @@
     "test:watch": "turbo run test:watch --parallel",
     "test:e2e": "turbo run test:e2e",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
-    "prepare": "lefthook install"
+    "prepare": "node scripts/prepare.cjs"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
