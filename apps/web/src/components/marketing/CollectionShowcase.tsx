@@ -1,5 +1,6 @@
 import { Reveal } from '@/components/shared/Reveal';
 import { ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export function CollectionShowcase() {
@@ -9,69 +10,17 @@ export function CollectionShowcase() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal className="order-2 lg:order-1">
             <div className="relative aspect-[4/5] w-full max-w-[520px] overflow-hidden rounded-lg bg-brand-primary-800">
+              <Image
+                src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&w=1200&q=80"
+                alt="Óculos da edição limitada Itapetinga 2026 em destaque."
+                fill
+                sizes="(min-width: 1024px) 40vw, 90vw"
+                className="object-cover"
+              />
               <div
                 aria-hidden="true"
-                className="absolute inset-0"
-                style={{
-                  background:
-                    'radial-gradient(circle at 30% 30%, rgb(var(--brand-primary-500) / 0.45) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgb(var(--brand-accent-500) / 0.32) 0%, transparent 55%)',
-                }}
+                className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/5"
               />
-              <svg
-                viewBox="0 0 400 500"
-                className="absolute inset-0 h-full w-full"
-                role="img"
-                aria-labelledby="showcase-title-svg"
-              >
-                <title id="showcase-title-svg">Óculos da edição limitada Itapetinga</title>
-                <g transform="translate(200 280)">
-                  <ellipse
-                    cx="-72"
-                    cy="0"
-                    rx="88"
-                    ry="74"
-                    fill="rgb(var(--brand-accent-500))"
-                    stroke="rgb(var(--brand-accent-700))"
-                    strokeWidth="6"
-                  />
-                  <ellipse
-                    cx="78"
-                    cy="0"
-                    rx="88"
-                    ry="74"
-                    fill="rgb(var(--brand-accent-500))"
-                    stroke="rgb(var(--brand-accent-700))"
-                    strokeWidth="6"
-                  />
-                  <ellipse cx="-72" cy="-18" rx="40" ry="16" fill="rgb(255 255 255 / 0.35)" />
-                  <ellipse cx="78" cy="-18" rx="40" ry="16" fill="rgb(255 255 255 / 0.35)" />
-                  <path
-                    d="M 12 -8 Q 4 -22 0 -22 Q -4 -22 -12 -8"
-                    stroke="rgb(var(--brand-accent-700))"
-                    strokeWidth="6"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                  <line
-                    x1="-160"
-                    y1="-12"
-                    x2="-220"
-                    y2="-32"
-                    stroke="rgb(var(--brand-accent-700))"
-                    strokeWidth="6"
-                    strokeLinecap="round"
-                  />
-                  <line
-                    x1="166"
-                    y1="-12"
-                    x2="226"
-                    y2="-32"
-                    stroke="rgb(var(--brand-accent-700))"
-                    strokeWidth="6"
-                    strokeLinecap="round"
-                  />
-                </g>
-              </svg>
               <div className="absolute right-5 bottom-5 left-5 flex items-end justify-between">
                 <div>
                   <p className="text-2xs text-cream-100/80 uppercase tracking-[0.18em]">Edição</p>

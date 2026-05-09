@@ -67,12 +67,12 @@ export function SocialProof() {
                 escolheram.
               </h2>
             </div>
-            <div className="flex items-center gap-6 rounded-lg border border-border bg-bg-elevated px-6 py-4 shadow-xs">
+            <div className="flex flex-wrap items-center gap-4 rounded-lg border border-border bg-bg-elevated px-5 py-4 shadow-xs sm:gap-6 sm:px-6">
               <div>
                 <p className="font-display text-3xl text-brand-primary-900 leading-none">4.9</p>
                 <StarRow />
               </div>
-              <div className="border-border-strong border-l pl-6">
+              <div className="border-border-strong border-l pl-4 sm:pl-6">
                 <p className="text-2xs text-fg-subtle uppercase tracking-widest">Google reviews</p>
                 <p className="mt-1 font-medium text-brand-primary-900 text-sm">+ 250 avaliações</p>
               </div>

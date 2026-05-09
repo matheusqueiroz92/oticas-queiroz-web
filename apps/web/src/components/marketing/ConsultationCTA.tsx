@@ -1,6 +1,7 @@
 import { Reveal } from '@/components/shared/Reveal';
 import { siteConfig } from '@/config/site';
-import { ArrowRight, CalendarClock, MapPin, MessageCircle } from 'lucide-react';
+import { ArrowRight, CalendarClock, MessageCircle } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export function ConsultationCTA() {
@@ -38,18 +39,18 @@ export function ConsultationCTA() {
                   className="text-balance font-display text-4xl leading-[1.02] tracking-tighter md:text-5xl lg:text-6xl"
                   style={{ fontVariationSettings: '"opsz" 144, "SOFT" 50' }}
                 >
-                  Sua consulta com o Dr. Henrique{' '}
+                  Exame de vista completo{' '}
                   <em className="font-display text-brand-accent-200 italic">em poucos cliques</em>.
                 </h2>
                 <p className="mt-6 max-w-lg text-pretty text-cream-100/80 md:text-lg">
-                  Atendimento de segunda a sábado, agendamento online em menos de 1 minuto. Examine,
-                  escolha a armação e leve para casa no mesmo dia.
+                  Atendimento de segunda a sábado, agendamento online em menos de 1 minuto. Faça seu
+                  exame de vista completo e escolha a armação que melhor combina com você.
                 </p>
 
                 <div className="mt-10 flex flex-wrap gap-3">
                   <Link
                     href="/agendar-consulta"
-                    className="group inline-flex items-center gap-2 rounded-full bg-brand-accent-500 px-7 py-4 font-medium text-cream-50 text-sm transition hover:bg-brand-accent-600"
+                    className="group inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-accent-500 px-6 py-3.5 font-medium text-cream-50 text-sm transition hover:bg-brand-accent-600 sm:px-7 sm:py-4"
                   >
                     <CalendarClock className="h-4 w-4" aria-hidden="true" />
                     Agendar agora
@@ -62,7 +63,7 @@ export function ConsultationCTA() {
                     href={siteConfig.social.whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-cream-100/30 px-7 py-4 font-medium text-cream-100 text-sm transition hover:bg-cream-100/10"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-full border border-cream-100/30 px-6 py-3.5 font-medium text-cream-100 text-sm transition hover:bg-cream-100/10 sm:px-7 sm:py-4"
                   >
                     <MessageCircle className="h-4 w-4" aria-hidden="true" />
                     Falar no WhatsApp
@@ -70,38 +71,15 @@ export function ConsultationCTA() {
                 </div>
               </div>
 
-              <ul className="grid gap-3 self-center">
-                {[
-                  {
-                    icon: <CalendarClock className="h-5 w-5" aria-hidden="true" />,
-                    title: 'Horários flexíveis',
-                    blurb: 'Seg a sex 8h–18h · sáb 8h–13h',
-                  },
-                  {
-                    icon: <MapPin className="h-5 w-5" aria-hidden="true" />,
-                    title: 'Bem no centro',
-                    blurb: 'Rua J. J. Seabra, 116 — Itapetinga',
-                  },
-                  {
-                    icon: <MessageCircle className="h-5 w-5" aria-hidden="true" />,
-                    title: 'Atendimento humano',
-                    blurb: 'Time que escuta, conhece e orienta',
-                  },
-                ].map((item) => (
-                  <li
-                    key={item.title}
-                    className="flex items-start gap-4 rounded-lg border border-cream-100/15 bg-cream-100/[0.04] p-4 backdrop-blur-sm"
-                  >
-                    <span className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-brand-accent-500/20 text-brand-accent-200">
-                      {item.icon}
-                    </span>
-                    <div>
-                      <p className="font-medium text-cream-100 text-sm">{item.title}</p>
-                      <p className="mt-0.5 text-cream-100/65 text-sm">{item.blurb}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex justify-center">
+                <Image
+                  src="/images/consultation-cta.png"
+                  alt="Exame de vista completo"
+                  width={400}
+                  height={400}
+                  className="rounded-lg"
+                />
+              </div>
             </div>
           </div>
         </Reveal>

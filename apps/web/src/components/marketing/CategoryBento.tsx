@@ -1,5 +1,6 @@
 import { Reveal } from '@/components/shared/Reveal';
 import { ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface Category {
@@ -7,9 +8,8 @@ interface Category {
   title: string;
   blurb: string;
   count: string;
-  className: string;
-  textClass: string;
-  icon: 'grau' | 'sol' | 'lente' | 'acessorio';
+  imageSrc: string;
+  imageAlt: string;
   span: string;
 }
 
@@ -19,9 +19,9 @@ const categories: Category[] = [
     title: 'Óculos de grau',
     blurb: 'Acetato, metal e titânio com lentes sob receita.',
     count: '+120 modelos',
-    className: 'bg-brand-primary-700 hover:bg-brand-primary-800',
-    textClass: 'text-cream-100',
-    icon: 'grau',
+    imageSrc:
+      'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Pessoa escolhendo óculos de grau em uma ótica.',
     span: 'md:row-span-2 md:col-span-1',
   },
   {
@@ -29,9 +29,9 @@ const categories: Category[] = [
     title: 'Óculos de sol',
     blurb: 'Polarização, espelhamento e proteção UV total.',
     count: '+90 modelos',
-    className: 'bg-brand-accent-50 hover:bg-brand-accent-100/60',
-    textClass: 'text-brand-accent-700',
-    icon: 'sol',
+    imageSrc:
+      'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Óculos de sol com armação moderna e lente escura.',
     span: 'md:col-span-2',
   },
   {
@@ -39,9 +39,9 @@ const categories: Category[] = [
     title: 'Lentes',
     blurb: 'Multifocal, antirreflexo e lente azul para tela.',
     count: '12 marcas',
-    className: 'bg-cream-200 hover:bg-cream-300',
-    textClass: 'text-brand-primary-900',
-    icon: 'lente',
+    imageSrc:
+      'https://images.unsplash.com/photo-1511920183353-3c18879b6f2f?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Close em lente oftálmica com reflexo suave.',
     span: '',
   },
   {
@@ -49,51 +49,12 @@ const categories: Category[] = [
     title: 'Acessórios',
     blurb: 'Estojos, cordões e produtos de limpeza.',
     count: '+30 itens',
-    className: 'bg-brand-primary-50 hover:bg-brand-primary-100',
-    textClass: 'text-brand-primary-700',
-    icon: 'acessorio',
+    imageSrc:
+      'https://images.unsplash.com/photo-1583225214464-9296029427aa?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Acessórios para cuidado e armazenamento de óculos.',
     span: '',
   },
 ];
-
-function CategoryIcon({ icon, className }: { icon: Category['icon']; className?: string }) {
-  const props = { className, fill: 'none', stroke: 'currentColor', strokeWidth: 5 };
-  if (icon === 'grau') {
-    return (
-      <svg viewBox="0 0 240 120" {...props} aria-hidden="true">
-        <circle cx="60" cy="60" r="42" />
-        <circle cx="180" cy="60" r="42" />
-        <path d="M 102 56 Q 120 48 138 56" strokeLinecap="round" />
-        <line x1="18" y1="56" x2="2" y2="50" strokeLinecap="round" />
-        <line x1="222" y1="56" x2="238" y2="50" strokeLinecap="round" />
-      </svg>
-    );
-  }
-  if (icon === 'sol') {
-    return (
-      <svg viewBox="0 0 240 120" {...props} aria-hidden="true">
-        <path d="M 18 50 Q 18 26 60 26 L 96 26 Q 108 26 108 38 L 102 90 Q 100 100 88 100 L 38 100 Q 22 100 20 88 Z" />
-        <path d="M 222 50 Q 222 26 180 26 L 144 26 Q 132 26 132 38 L 138 90 Q 140 100 152 100 L 202 100 Q 218 100 220 88 Z" />
-        <line x1="108" y1="46" x2="132" y2="46" strokeLinecap="round" />
-      </svg>
-    );
-  }
-  if (icon === 'lente') {
-    return (
-      <svg viewBox="0 0 240 120" {...props} aria-hidden="true">
-        <ellipse cx="120" cy="60" rx="80" ry="42" />
-        <ellipse cx="100" cy="42" rx="22" ry="10" strokeWidth="3" opacity="0.5" />
-      </svg>
-    );
-  }
-  return (
-    <svg viewBox="0 0 240 120" {...props} aria-hidden="true">
-      <rect x="60" y="22" width="120" height="76" rx="8" />
-      <line x1="60" y1="50" x2="180" y2="50" />
-      <circle cx="120" cy="74" r="6" fill="currentColor" />
-    </svg>
-  );
-}
 
 export function CategoryBento() {
   return (
@@ -122,28 +83,35 @@ export function CategoryBento() {
             <Reveal key={cat.href} delay={i * 0.08} className={cat.span}>
               <Link
                 href={cat.href}
-                className={`group relative flex h-full min-h-[220px] flex-col justify-between overflow-hidden rounded-lg p-6 transition md:p-8 ${cat.className}`}
+                className="group relative flex h-full min-h-[220px] flex-col justify-between overflow-hidden rounded-lg p-6 transition md:p-8"
               >
-                <div className={`relative z-10 flex items-start justify-between ${cat.textClass}`}>
-                  <p className="text-2xs uppercase tracking-[0.18em] opacity-70">{cat.count}</p>
+                <Image
+                  src={cat.imageSrc}
+                  alt={cat.imageAlt}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/20"
+                />
+                <div className="relative z-10 flex items-start justify-between text-cream-100">
+                  <p className="text-2xs uppercase tracking-[0.18em] opacity-80">{cat.count}</p>
                   <ArrowUpRight
                     className="group-hover:-translate-y-0.5 h-5 w-5 transition-transform group-hover:translate-x-0.5"
                     aria-hidden="true"
                   />
                 </div>
-                <div className={`relative z-10 ${cat.textClass}`}>
+                <div className="relative z-10 text-cream-100">
                   <h3
                     className="font-display text-2xl leading-tight tracking-tight md:text-3xl"
                     style={{ fontVariationSettings: '"opsz" 96, "SOFT" 50' }}
                   >
                     {cat.title}
                   </h3>
-                  <p className="mt-2 max-w-[28ch] text-sm opacity-75">{cat.blurb}</p>
+                  <p className="mt-2 max-w-[28ch] text-sm opacity-90">{cat.blurb}</p>
                 </div>
-                <CategoryIcon
-                  icon={cat.icon}
-                  className={`-bottom-2 -right-2 absolute h-32 w-auto opacity-15 transition-transform duration-700 group-hover:scale-105 ${cat.textClass} md:h-40`}
-                />
               </Link>
             </Reveal>
           ))}
