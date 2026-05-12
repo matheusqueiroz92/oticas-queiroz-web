@@ -19,7 +19,10 @@
         "AUTH_SECRET",
         "UPSTASH_REDIS_REST_URL",
         "UPSTASH_REDIS_REST_TOKEN",
-        "SENTRY_DSN"
+        "SENTRY_AUTH_TOKEN",
+        "CONTACT_WEBHOOK_URL",
+        "CONTACT_WEBHOOK_SECRET",
+        "SKIP_ENV_VALIDATION"
       ]
     },
     "dev": {
