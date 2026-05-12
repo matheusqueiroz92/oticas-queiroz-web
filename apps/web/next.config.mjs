@@ -4,6 +4,11 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
 
+  /** Playwright/Vitest ficam em devDependencies (omitidas na Vercel). */
+  typescript: {
+    tsconfigPath: 'tsconfig.build.json',
+  },
+
   experimental: {
     optimizePackageImports: ['lucide-react', 'date-fns', 'motion'],
   },
