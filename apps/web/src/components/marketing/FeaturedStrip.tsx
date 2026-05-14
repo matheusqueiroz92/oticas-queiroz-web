@@ -55,7 +55,7 @@ const features: Feature[] = [
 
 export function FeaturedStrip() {
   return (
-    <section aria-labelledby="featured-title" className="border-border-strong border-y bg-cream-50">
+    <section aria-labelledby="featured-title" className="border-border-strong border-y bg-bg">
       <div className="container-editorial py-10 md:py-14">
         <Reveal>
           <div className="mb-8 flex items-end justify-between gap-4">
