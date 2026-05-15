@@ -1,4 +1,5 @@
-import { Reveal } from '@/components/shared/Reveal';
+import { Reveal, RevealItem } from '@/components/shared/Reveal';
+import { siteConfig } from '@/config/site';
 
 interface Testimonial {
   name: string;
@@ -67,7 +68,12 @@ export function SocialProof() {
                 escolheram.
               </h2>
             </div>
-            <div className="flex flex-wrap items-center gap-4 rounded-lg border border-border bg-bg-elevated px-5 py-4 shadow-xs sm:gap-6 sm:px-6">
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${siteConfig.contact.address.street}, ${siteConfig.contact.address.number}, ${siteConfig.contact.address.city}`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-wrap items-center gap-4 rounded-lg border border-border bg-bg-elevated px-5 py-4 shadow-xs transition hover:border-border-strong sm:gap-6 sm:px-6"
+            >
               <div>
                 <p className="font-display text-3xl text-brand-primary-900 leading-none">4.9</p>
                 <StarRow />
@@ -76,31 +82,33 @@ export function SocialProof() {
                 <p className="text-2xs text-fg-subtle uppercase tracking-widest">Google reviews</p>
                 <p className="mt-1 font-medium text-brand-primary-900 text-sm">+ 250 avaliações</p>
               </div>
-            </div>
+            </a>
           </div>
         </Reveal>
 
-        <div className="grid gap-4 md:grid-cols-3 md:gap-6">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.name} delay={i * 0.08}>
-              <article className="flex h-full flex-col gap-5 rounded-lg border border-border bg-bg-elevated p-6 transition hover:border-border-strong">
-                <StarRow />
-                <p className="font-display text-brand-primary-900 text-lg leading-snug md:text-xl">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className="mt-auto flex items-center gap-3 border-border border-t pt-5">
-                  <div className="grid h-10 w-10 place-items-center rounded-full bg-brand-accent-50 font-medium text-brand-accent-700 text-sm">
-                    {t.initials}
+        <Reveal variant="stagger-children">
+          <div className="grid gap-4 md:grid-cols-3 md:gap-6">
+            {testimonials.map((t) => (
+              <RevealItem key={t.name}>
+                <article className="flex h-full flex-col gap-5 rounded-lg border border-border bg-bg-elevated p-6 transition hover:border-border-strong">
+                  <StarRow />
+                  <p className="font-display text-brand-primary-900 text-lg leading-snug md:text-xl">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                  <div className="mt-auto flex items-center gap-3 border-border border-t pt-5">
+                    <div className="grid h-10 w-10 place-items-center rounded-full bg-brand-accent-50 font-medium text-brand-accent-700 text-sm">
+                      {t.initials}
+                    </div>
+                    <div>
+                      <p className="font-medium text-brand-primary-900 text-sm">{t.name}</p>
+                      <p className="text-fg-muted text-xs">{t.role}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-medium text-brand-primary-900 text-sm">{t.name}</p>
-                    <p className="text-fg-muted text-xs">{t.role}</p>
-                  </div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+                </article>
+              </RevealItem>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

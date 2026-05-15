@@ -45,5 +45,8 @@
   },
   "commitlint": {
     "extends": ["@commitlint/config-conventional"]
+  },
+  "dependencies": {
+    "simple-icons": "11"
   }
 }

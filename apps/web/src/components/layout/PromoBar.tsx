@@ -1,7 +1,7 @@
 const promos = [
   'Parcelamos em 10x sem juros',
   'Atendimento por WhatsApp',
-  'Coleção 2026 disponível',
+  'Orçamento online',
   'Ninguém oferece tanto',
 ];
 

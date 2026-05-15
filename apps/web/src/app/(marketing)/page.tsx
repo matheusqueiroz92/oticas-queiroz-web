@@ -4,6 +4,7 @@ import { CollectionShowcase } from '@/components/marketing/CollectionShowcase';
 import { ConsultationCTA } from '@/components/marketing/ConsultationCTA';
 import { FeaturedStrip } from '@/components/marketing/FeaturedStrip';
 import { HeroCarousel } from '@/components/marketing/HeroCarousel';
+import { SectionDivider } from '@/components/marketing/SectionDivider';
 import { SocialProof } from '@/components/marketing/SocialProof';
 import { LocalBusinessJsonLd } from '@/components/seo/JsonLd';
 import { buildMetadata } from '@/lib/seo';
@@ -19,6 +20,7 @@ export default function HomePage() {
       <FeaturedStrip />
       <BrandsGrid />
       <CategoryBento />
+      <SectionDivider />
       <CollectionShowcase />
       <SocialProof />
       <ConsultationCTA />

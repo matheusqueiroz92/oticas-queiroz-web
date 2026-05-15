@@ -8,7 +8,6 @@ export const ERP_URL = 'https://app.oticasqueiroz.com.br';
 
 export const mainNav: NavItem[] = [
   { label: 'Quem Somos', href: '/quem-somos' },
-  { label: 'Nossa Equipe', href: '/nossa-equipe' },
   { label: 'Coleções', href: '/colecoes' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contato', href: '/contato' },
@@ -16,7 +15,7 @@ export const mainNav: NavItem[] = [
 
 export const utilityNav: NavItem[] = [
   { label: 'Consultar pedido', href: ERP_URL, external: true },
-  { label: 'Agendar consulta', href: '/agendar-consulta' },
+  { label: 'Saúde visual', href: '/saude-visual' },
 ];
 
 export const footerSections: { title: string; items: NavItem[] }[] = [
@@ -34,7 +33,7 @@ export const footerSections: { title: string; items: NavItem[] }[] = [
     items: [
       { label: 'Blog', href: '/blog' },
       { label: 'Coleções', href: '/colecoes' },
-      { label: 'Agendar Consulta', href: '/agendar-consulta' },
+      { label: 'Saúde visual', href: '/saude-visual' },
       { label: 'Status do Pedido', href: ERP_URL, external: true },
     ],
   },

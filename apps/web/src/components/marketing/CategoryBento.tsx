@@ -94,7 +94,7 @@ export function CategoryBento() {
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/20"
+                  className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/45 to-black/25"
                 />
                 <div className="relative z-10 flex items-start justify-between text-cream-100">
                   <p className="text-2xs uppercase tracking-[0.18em] opacity-80">{cat.count}</p>

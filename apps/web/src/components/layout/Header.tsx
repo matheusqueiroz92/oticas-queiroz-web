@@ -1,3 +1,4 @@
+import { HeaderMobileMenu } from '@/components/layout/HeaderMobileMenu';
 import { mainNav, utilityNav } from '@/config/nav';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/cn';
@@ -52,10 +53,11 @@ export function Header({ className }: { className?: string }) {
           <button
             type="button"
             aria-label="Buscar"
-            className="grid h-10 w-10 place-items-center rounded-full text-[#0A3185]/80 transition hover:bg-cream-200 hover:text-[#0A3185]"
+            className="hidden h-10 w-10 place-items-center rounded-full text-[#0A3185]/80 transition hover:bg-cream-200 hover:text-[#0A3185] sm:grid"
           >
             <Search className="h-4 w-4" aria-hidden="true" />
           </button>
+          <HeaderMobileMenu />
         </div>
       </div>
     </header>

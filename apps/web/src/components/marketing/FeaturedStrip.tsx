@@ -1,4 +1,4 @@
-import { Reveal } from '@/components/shared/Reveal';
+import { Reveal, RevealItem } from '@/components/shared/Reveal';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -82,37 +82,41 @@ export function FeaturedStrip() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-          {features.map((f, i) => (
-            <Reveal key={f.id} delay={i * 0.06}>
-              <Link
-                href={f.href}
-                className="group relative block aspect-[4/5] overflow-hidden rounded-lg border border-border bg-brand-primary-50 transition hover:shadow-md"
-              >
-                {f.badge && (
-                  <span className="absolute top-3 right-3 z-10 rounded-full bg-brand-accent-500 px-2 py-0.5 font-medium text-2xs text-cream-50 uppercase tracking-widest">
-                    {f.badge}
-                  </span>
-                )}
-                <Image
-                  src={f.imageSrc}
-                  alt={f.imageAlt}
-                  fill
-                  sizes="(min-width: 768px) 24vw, 44vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 via-black/35 to-transparent"
-                />
-                <div className="absolute right-0 bottom-0 left-0 p-4">
-                  <p className="text-2xs text-cream-100/90 uppercase tracking-widest">{f.label}</p>
-                  <p className="mt-1 font-display text-cream-100 text-lg">{f.title}</p>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal variant="stagger-children">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+            {features.map((f) => (
+              <RevealItem key={f.id}>
+                <Link
+                  href={f.href}
+                  className="group relative block aspect-[4/5] overflow-hidden rounded-lg border border-border bg-brand-primary-50 transition hover:shadow-md"
+                >
+                  {f.badge && (
+                    <span className="absolute top-3 right-3 z-10 rounded-full bg-brand-accent-500 px-2 py-0.5 font-medium text-2xs text-cream-50 uppercase tracking-widest">
+                      {f.badge}
+                    </span>
+                  )}
+                  <Image
+                    src={f.imageSrc}
+                    alt={f.imageAlt}
+                    fill
+                    sizes="(min-width: 768px) 24vw, 44vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 via-black/35 to-transparent"
+                  />
+                  <div className="absolute right-0 bottom-0 left-0 p-4">
+                    <p className="text-2xs text-cream-100/90 uppercase tracking-widest">
+                      {f.label}
+                    </p>
+                    <p className="mt-1 font-display text-cream-100 text-lg">{f.title}</p>
+                  </div>
+                </Link>
+              </RevealItem>
+            ))}
+          </div>
+        </Reveal>
 
         <Link
           href="/colecoes"

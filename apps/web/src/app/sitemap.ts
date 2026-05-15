@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contato',
     '/colecoes',
     '/blog',
-    '/agendar-consulta',
+    '/saude-visual',
     '/consultar-pedido',
     '/orcamento',
     '/politica-de-privacidade',

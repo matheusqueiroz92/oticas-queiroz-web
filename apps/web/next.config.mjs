@@ -43,6 +43,11 @@ const nextConfig = {
 
   async redirects() {
     return [
+      {
+        source: '/agendar-consulta',
+        destination: '/saude-visual',
+        permanent: true,
+      },
       // Mantemos aqui os redirects das URLs antigas do WordPress.
     ];
   },

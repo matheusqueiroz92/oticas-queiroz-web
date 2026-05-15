@@ -1,10 +1,13 @@
 import { Reveal } from '@/components/shared/Reveal';
 import { siteConfig } from '@/config/site';
-import { ArrowRight, CalendarClock, MessageCircle } from 'lucide-react';
+import { getConsultationWhatsAppLink } from '@/lib/health-visual';
+import { ArrowRight, MessageCircle, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export function ConsultationCTA() {
+  const whatsappHref = getConsultationWhatsAppLink();
+
   return (
     <section aria-labelledby="cta-title" className="bg-bg">
       <div className="container-editorial py-20 md:py-28">
@@ -39,34 +42,40 @@ export function ConsultationCTA() {
                   className="text-balance font-display text-4xl leading-[1.02] tracking-tighter md:text-5xl lg:text-6xl"
                   style={{ fontVariationSettings: '"opsz" 144, "SOFT" 50' }}
                 >
-                  Exame de vista completo{' '}
-                  <em className="font-display text-brand-accent-200 italic">em poucos cliques</em>.
+                  Consulta oftalmológica{' '}
+                  <em className="font-display text-brand-accent-200 italic">com parceiro</em>.
                 </h2>
                 <p className="mt-6 max-w-lg text-pretty text-cream-100/80 md:text-lg">
-                  Atendimento de segunda a sábado, agendamento online em menos de 1 minuto. Faça seu
-                  exame de vista completo e escolha a armação que melhor combina com você.
+                  Parceria com a Oftalmedic, consultório vizinho. Solicite um horário pelo WhatsApp
+                  ou telefone — nossa equipe confirma a disponibilidade com você.
                 </p>
 
                 <div className="mt-10 flex flex-wrap gap-3">
                   <Link
-                    href="/agendar-consulta"
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-accent-500 px-6 py-3.5 font-medium text-cream-50 text-sm transition hover:bg-brand-accent-600 sm:px-7 sm:py-4"
                   >
-                    <CalendarClock className="h-4 w-4" aria-hidden="true" />
-                    Agendar agora
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                    Solicitar horário
                     <ArrowRight
                       className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                       aria-hidden="true"
                     />
                   </Link>
                   <Link
-                    href={siteConfig.social.whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/saude-visual"
                     className="inline-flex min-h-11 items-center gap-2 rounded-full border border-cream-100/30 px-6 py-3.5 font-medium text-cream-100 text-sm transition hover:bg-cream-100/10 sm:px-7 sm:py-4"
                   >
-                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                    Falar no WhatsApp
+                    Saiba como funciona
+                  </Link>
+                  <Link
+                    href={`tel:+${siteConfig.contact.phone}`}
+                    className="inline-flex min-h-11 items-center gap-2 rounded-full border border-cream-100/30 px-6 py-3.5 font-medium text-cream-100 text-sm transition hover:bg-cream-100/10 sm:px-7 sm:py-4"
+                  >
+                    <Phone className="h-4 w-4" aria-hidden="true" />
+                    Ligar para a loja
                   </Link>
                 </div>
               </div>
@@ -74,7 +83,7 @@ export function ConsultationCTA() {
               <div className="flex justify-center">
                 <Image
                   src="/images/consultation-cta.png"
-                  alt="Exame de vista completo"
+                  alt="Atendimento de saúde visual na Óticas Queiroz"
                   width={400}
                   height={400}
                   className="rounded-lg"
